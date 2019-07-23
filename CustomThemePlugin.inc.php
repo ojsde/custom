@@ -32,6 +32,13 @@ class CustomThemePlugin extends ThemePlugin {
 			'label' => 'plugins.themes.custom.option.headingLabel',
 			'description' => 'plugins.themes.custom.option.headingDescription'
 		));		
+				
+		$this->addOption('colourHeading', 'colour', array(
+		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
+		  'description' => 'plugins.themes.custom.option.colourHeadingDescription',
+		  'default' => '#fff'
+		));		
+		$colourHeading = $this->getOption('colourHeading');
 		
 		// Journal Description Position Option
 		$this->addOption('positionJournalDescription', 'radio', array(
@@ -43,14 +50,7 @@ class CustomThemePlugin extends ThemePlugin {
 				3 => 'plugins.themes.custom.option.positionJournalDescriptionOff'
 			)
 		));			
-		$positionJournalDescription = $this->getOption('positionJournalDescription');
-				
-		$this->addOption('colourHeading', 'colour', array(
-		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
-		  'description' => 'plugins.themes.custom.option.colourHeadingDescription',
-		  'default' => '#fff'
-		));		
-		$colourHeading = $this->getOption('colourHeading');
+		$positionJournalDescription = $this->getOption('positionJournalDescription');		
 		
 		$this->addOption('colourFooter', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourFooterLabel',
