@@ -30,10 +30,10 @@
 	<message key="plugins.themes.custom.option.colourLinksLabel">Link Colour</message>	
 	<message key="plugins.themes.custom.option.colourLinksDescription">Choose colour of links</message>
 	
-	<message key="plugins.themes.custom.option.fontHeadlineLabel">Überschriften</message>
-	<message key="plugins.themes.custom.option.fontHeadlineDescription">Schriftart für Überschriften</message>
-	<message key="plugins.themes.custom.option.fontBodyLabel">Text-Schriften</message>
-	<message key="plugins.themes.custom.option.fontBodyDescription">Schriftart für Texte</message>	
+	<message key="plugins.themes.custom.option.fontHeadlineLabel">Heading Fonts</message>
+	<message key="plugins.themes.custom.option.fontHeadlineDescription">Choose a font for headings</message>
+	<message key="plugins.themes.custom.option.fontBodyLabel">Text Fonts</message>
+	<message key="plugins.themes.custom.option.fontBodyDescription">Choose a font for text</message>	
 		  
 	<message key="plugins.themes.custom.option.FontArial">Arial</message>
 	<message key="plugins.themes.custom.option.FontGeorgia">Georgia</message>
