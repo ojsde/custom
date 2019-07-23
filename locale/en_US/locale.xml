@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/themes/default-child/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2014-2016 Simon Fraser University Library
+  * Copyright (c) 2003-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.themes.custom.name">Custom Theme</message>
+	<message key="plugins.themes.custom.description">Customizing Theme</message>
+	
+	
+	<message key="plugins.themes.custom.option.headingLabel">Heading</message>
+	<message key="plugins.themes.custom.option.headingDescription">Enter heading / title</message>
+	<message key="plugins.themes.custom.option.positionJournalDescriptionLabel">Position Journal Description</message>
+	<message key="plugins.themes.custom.option.positionJournalDescriptionDescription">Enter position of journal description.</message>
+	<message key="plugins.themes.custom.option.positionJournalDescriptionAbove">Above Announcements</message>	
+	<message key="plugins.themes.custom.option.positionJournalDescriptionBelow">Below Announcements</message>	
+	<message key="plugins.themes.custom.option.positionJournalDescriptionOff">Don't show</message>	
+
+	<message key="plugins.themes.custom.option.colourHeadingLabel">Heading Colour</message>	
+	<message key="plugins.themes.custom.option.colourHeadingDescription">Colour of the heading</message>	
+	
+	<message key="plugins.themes.custom.option.colourLinksLabel">Link Colour</message>	
+	<message key="plugins.themes.custom.option.colourLinksDescription">Choose colour of links</message>
+	
+	<message key="plugins.themes.custom.option.FontArial">Arial</message>
+	<message key="plugins.themes.custom.option.FontGeorgia">Georgia</message>
+	<message key="plugins.themes.custom.option.FontNotoSans">Noto Sans</message>
+	<message key="plugins.themes.custom.option.FontNotoSerif">Noto Serif</message>
+	<message key="plugins.themes.custom.option.FontFiraSans">Fira Sans</message>
+	<message key="plugins.themes.custom.option.FontSourceSansPro">Source Sans Pro</message>
+	<message key="plugins.themes.custom.option.FontMerriweather">Merriweather</message>
+	<message key="plugins.themes.custom.option.FontMerriweatherSans">Merriweather Sans</message>	
+	
+</locale>
+
+

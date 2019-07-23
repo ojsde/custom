@@ -1,0 +1,79 @@
+
+
+
+
+.journal_description {
+		margin-left: -@base;
+		margin-right: -@base;
+		padding-bottom: 20px !important;
+		
+		@media (min-width: @screen-phone) {
+			margin-left: -@double;
+			margin-right: -@double;
+		}
+
+		@media (min-width: @screen-desktop) {
+			margin-left: -@triple;
+			margin-right: -@triple;
+		}
+	
+		padding: @triple @base 0 @base;
+		border-top: @bg-border;
+		border-bottom: @bg-border;		
+
+		@media (min-width: @screen-phone) {
+			padding-left: @double;
+			padding-right: @double;
+		}
+
+		@media (min-width: @screen-desktop) {
+			padding-left: @triple;
+			padding-right: @triple;
+		}
+
+		> p:first-child {
+			margin-top: 0;
+		}
+
+		> p:last-child {
+			margin-bottom: 0;
+		}
+
+}
+
+@media(min-width: @screen-tablet) {
+	.journal_description {
+		border-top: none;
+	}
+}
+	
+.journal_description_above {
+	display: none;
+}
+.journal_description_below {
+	display: none;
+}
+
+.journal_description_above when (@positionJournalDescription =1) {
+	display: block;
+}
+.journal_description_below when (@positionJournalDescription =2) {
+	display: block;
+}	
+
+#custom_heading h2 {
+	color: @colour-heading;
+	font-family: "MerriweatherSans", @fontHeadline, "Times New Roman", Times,serif;
+}
+
+.pkp_brand_footer img {
+	width: 100px;
+}
+
+
+
+
+
+	
+	
+	
