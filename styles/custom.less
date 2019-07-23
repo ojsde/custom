@@ -126,7 +126,16 @@
 }
 
 
+// logo auf smartphones ausschalten
+.pkp_site_name a.is_img {
+	display:none;
+}
 
+@media only screen and (min-width: @screen-phone) {
+.pkp_site_name a.is_img {
+	display:block;
+}
+}
 
 
 	
