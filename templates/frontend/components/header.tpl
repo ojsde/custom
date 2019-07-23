@@ -71,10 +71,11 @@
 						</div>
 					{/if}
 				</div>
-				
+				{if $displayPageHeaderLogo}
 				<div id="custom_heading">
-					<h2><a href="{$homeUrl}">{$customHeading}</a></h2>
+					<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
 				</div>				
+				{/if}
 
 				{* Primary site navigation *}
 				{capture assign="primaryMenu"}

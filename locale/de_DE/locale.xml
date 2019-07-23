@@ -43,9 +43,12 @@
 	<message key="plugins.themes.custom.option.FontMerriweather">Merriweather</message>
 	<message key="plugins.themes.custom.option.FontMerriweatherSans">Merriweather Sans</message>	
 	
-	
 	<message key="plugins.themes.custom.option.typeBorderLabel">Borders</message>
 	<message key="plugins.themes.custom.option.typeBorderDescription">Set borders.</message>
 	<message key="plugins.themes.custom.option.typeBorderOn">On</message>
-	<message key="plugins.themes.custom.option.typeBorderOff">Off</message>		
+	<message key="plugins.themes.custom.option.typeBorderOff">Off</message>
+
+	<message key="plugins.themes.custom.option.colourFooterLabel">Footer Colour</message>	
+	<message key="plugins.themes.custom.option.colourFooterDescription">Choose background colour for the footer</message>		
+		
 </locale>

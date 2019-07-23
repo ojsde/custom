@@ -48,9 +48,16 @@ class CustomThemePlugin extends ThemePlugin {
 		$this->addOption('colourHeading', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
 		  'description' => 'plugins.themes.custom.option.colourHeadingDescription',
-		  'default' => '#000'
+		  'default' => '#fff'
 		));		
 		$colourHeading = $this->getOption('colourHeading');
+		
+		$this->addOption('colourFooter', 'colour', array(
+		  'label' => 'plugins.themes.custom.option.colourFooterLabel',
+		  'description' => 'plugins.themes.custom.option.colourFooterDescription',
+		  'default' => '#ddd'
+		));		
+		$colourFooter = $this->getOption('colourFooter');		
 		
 		$this->addOption('colourLinks', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourLinksLabel',
@@ -171,6 +178,8 @@ class CustomThemePlugin extends ThemePlugin {
 		$additionalLessVariables[] = '@colour-heading: ' . $colourHeading . ';';
 		$additionalLessVariables[] = '@font: @fontBody;';	
 		$additionalLessVariables[] = '@font-heading: @fontHeadline;';
+		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';
+		
 		if ($typeBorder==0) {
 			$additionalLessVariables[] = '@bg-border: transparent;';	
 		}
