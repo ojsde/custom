@@ -61,8 +61,8 @@ class CustomThemePlugin extends ThemePlugin {
 		
 		// Journal Headling font
 		$this->addOption('fontHeadline', 'radio', array(
-		  'label' => 'plugins.themes.cedistheme.option.cedisTheme.headlineFontLabel',
-		  'description' => 'plugins.themes.cedistheme.option.cedisTheme.headlineFontDescription',
+		  'label' => 'plugins.themes.custom.option.fontHeadlineLabel',
+		  'description' => 'plugins.themes.custom.option.fontHeadlineDescription',
 		  'default' => 'NotoSans',		  
 		  'options' => array(
 			'Arial' => 'plugins.themes.custom.option.FontArial',
@@ -78,8 +78,8 @@ class CustomThemePlugin extends ThemePlugin {
 
 		// Journal Body font
 		$this->addOption('fontBody', 'radio', array(
-		  'label' => 'plugins.themes.cedistheme.option.cedisTheme.bodyFontLabel',
-		  'description' => 'plugins.themes.cedistheme.option.cedisTheme.bodyFontDescription',
+		  'label' => 'plugins.themes.custom.option.fontBodyLabel',
+		  'description' => 'plugins.themes.custom.option.fontBodyDescription',
 		  'options' => array(
 			'Arial' => 'plugins.themes.custom.option.FontArial',
 			'Georgia' => 'plugins.themes.custom.option.FontGeorgia',
