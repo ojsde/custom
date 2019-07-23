@@ -20,7 +20,7 @@
 {/strip}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
+{if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
@@ -43,11 +43,13 @@
 					{else}
 						<div class="pkp_site_name">
 					{/if}
-						{if $currentContext && $multipleContexts}
-							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-						{else}
-							{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
-						{/if}
+						{capture assign="homeUrl"}
+							{if $currentContext && $multipleContexts}
+								{url page="index" router=$smarty.const.ROUTE_PAGE}
+							{else}
+								{url context="index" router=$smarty.const.ROUTE_PAGE}
+							{/if}
+						{/capture}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 							<a href="{$homeUrl}" class="is_img">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
@@ -71,22 +73,28 @@
 				</div>
 				
 				<div id="custom_heading">
-					<h2>{$test2}</p>
-				</div>		
-				
+					<h2><a href="{$homeUrl}">{$customHeading}</a></h2>
+				</div>				
 
 				{* Primary site navigation *}
-				{if $currentContext}
+				{capture assign="primaryMenu"}
+					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				{/capture}
+
+				{if !empty(trim($primaryMenu)) || $currentContext}
 					<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
 						<div class="pkp_navigation_primary_wrapper">
 							{* Primary navigation menu for current application *}
-							{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+							{$primaryMenu}
 
-							{* Search form *}
-							{include file="frontend/components/searchForm_simple.tpl"}
+							{if $currentContext}
+								{* Search form *}
+								{include file="frontend/components/searchForm_simple.tpl"}
+							{/if}
 						</div>
 					</nav>
 				{/if}
+				
 				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</nav>

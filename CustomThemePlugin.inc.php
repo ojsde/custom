@@ -214,8 +214,8 @@ class CustomThemePlugin extends ThemePlugin {
 			}
 			$orcidImage = $this->getPluginPath() . '/templates/images/orcid.png';*/
 			$templateMgr->assign(array(
-				'test1' => 'test1',
-				'test2' => $this->getOption('heading')
+				//'journalDescrition' =>  $context->getDescription(null),
+				'customHeading' => $this->getOption('heading')
 			));
 		//}
 	}

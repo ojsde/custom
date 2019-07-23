@@ -21,7 +21,6 @@
 <div class="page_index_journal">
 
 	{call_hook name="Templates::Index::journal"}
-
 	{if $homepageImage}
 		<div class="homepage_image">
 			<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
@@ -34,7 +33,6 @@
 		</div>
 	{/if}	
 	
-	
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
 		<div class="cmp_announcements highlight_first">
@@ -43,7 +41,7 @@
 			</h2>
 			{foreach name=announcements from=$announcements item=announcement}
 				{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
-					{php}break;{/php}
+					{break}
 				{/if}
 				{if $smarty.foreach.announcements.iteration == 1}
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
@@ -69,7 +67,7 @@
 		<div class="journal_description journal_description_below">
 			{$journalDescription}
 		</div>
-	{/if}		
+	{/if}
 
 	{* Latest issue *}
 	{if $issue}
