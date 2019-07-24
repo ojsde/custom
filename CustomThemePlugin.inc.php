@@ -213,7 +213,13 @@ class CustomThemePlugin extends ThemePlugin {
 		$additionalLessVariables[] = '@colour-heading: ' . $colourHeading . ';';
 		$additionalLessVariables[] = '@font: @fontBody;';	
 		$additionalLessVariables[] = '@font-heading: @fontHeadline;';
-		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';
+		
+		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';	
+		if ($this->isColourDark($colourFooter)) {
+			$additionalLessVariables[] = '@footer-dark: 1;';
+		} else {
+			$additionalLessVariables[] = '@footer-dark: 0;';			
+		}
 		
 		if ($typeBorder==0) {
 			$additionalLessVariables[] = '@bg-border: transparent;';	
