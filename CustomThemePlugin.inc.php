@@ -75,7 +75,14 @@ class CustomThemePlugin extends ThemePlugin {
 		  'description' => 'plugins.themes.custom.option.colourLinksDescription',
 		  'default' => '#009de5;'
 		));		
-		$colourLinks = $this->getOption('colourLinks');		
+		$colourLinks = $this->getOption('colourLinks');
+
+		$this->addOption('colourText', 'colour', array(
+		  'label' => 'plugins.themes.custom.option.colourTextLabel',
+		  'description' => 'plugins.themes.custom.option.colourTextDescription',
+		  'default' => '#bbb;'
+		));		
+		$colourText = $this->getOption('colourText');		
 		
 		// Journal Headling font
 		$this->addOption('fontHeadline', 'radio', array(
@@ -213,6 +220,7 @@ class CustomThemePlugin extends ThemePlugin {
 		$additionalLessVariables[] = '@colour-heading: ' . $colourHeading . ';';
 		$additionalLessVariables[] = '@font: @fontBody;';	
 		$additionalLessVariables[] = '@font-heading: @fontHeadline;';
+		$additionalLessVariables[] = '@text: ' . $colourText . ';';	
 		
 		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';	
 		if ($this->isColourDark($colourFooter)) {

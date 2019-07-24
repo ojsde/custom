@@ -14,7 +14,8 @@
 <locale name="de_DE" full_name="German">
 	<message key="plugins.themes.custom.name">Custom Theme</message>
 	<message key="plugins.themes.custom.description">Customizing Theme</message>
-		
+	
+	
 	<message key="plugins.themes.custom.option.headingLabel">Heading</message>
 	<message key="plugins.themes.custom.option.headingDescription">Enter heading / title</message>
 	<message key="plugins.themes.custom.option.positionJournalDescriptionLabel">Position Journal Description</message>
@@ -24,15 +25,15 @@
 	<message key="plugins.themes.custom.option.positionJournalDescriptionOff">Don't show</message>	
 
 	<message key="plugins.themes.custom.option.colourHeadingLabel">Heading Colour</message>	
-	<message key="plugins.themes.custom.option.colourHeadingDescription">Colour of the heading</message>	
+	<message key="plugins.themes.custom.option.colourHeadingDescription">Choose the Ccolour of the custom heading.</message>	
 	
 	<message key="plugins.themes.custom.option.colourLinksLabel">Link Colour</message>	
 	<message key="plugins.themes.custom.option.colourLinksDescription">Choose colour of links</message>
 	
-	<message key="plugins.themes.custom.option.fontHeadlineLabel">Überschriften</message>
-	<message key="plugins.themes.custom.option.fontHeadlineDescription">Schriftart für Überschriften</message>
-	<message key="plugins.themes.custom.option.fontBodyLabel">Text-Schriften</message>
-	<message key="plugins.themes.custom.option.fontBodyDescription">Schriftart für Texte</message>	
+	<message key="plugins.themes.custom.option.fontHeadlineLabel">Heading Fonts</message>
+	<message key="plugins.themes.custom.option.fontHeadlineDescription">Choose a font for headings.</message>
+	<message key="plugins.themes.custom.option.fontBodyLabel">Text Fonts</message>
+	<message key="plugins.themes.custom.option.fontBodyDescription">Choose a font for text.</message>	
 		  
 	<message key="plugins.themes.custom.option.FontArial">Arial</message>
 	<message key="plugins.themes.custom.option.FontGeorgia">Georgia</message>
@@ -45,12 +46,12 @@
 	
 	<message key="plugins.themes.custom.option.typeBorderLabel">Borders</message>
 	<message key="plugins.themes.custom.option.typeBorderDescription">Set borders.</message>
-	<message key="plugins.themes.custom.option.typeBorderOn">On</message>
-	<message key="plugins.themes.custom.option.typeBorderOff">Off</message>
+	<message key="plugins.themes.custom.option.typeBorderOn">Default/On</message>
+	<message key="plugins.themes.custom.option.typeBorderOff">Only vertical</message>	
 
 	<message key="plugins.themes.custom.option.colourFooterLabel">Footer Colour</message>	
 	<message key="plugins.themes.custom.option.colourFooterDescription">Choose background colour for the footer</message>		
-
+	
 	<message key="plugins.themes.custom.option.positionSidebarLabel">Sidebar Position</message>
 	<message key="plugins.themes.custom.option.positionSidebarDescription">Choose position of the sidebar.</message>
 	<message key="plugins.themes.custom.option.positionSidebarRight">Right</message>
@@ -60,5 +61,9 @@
 	<message key="plugins.themes.custom.option.headerMobileDescription">Choose which header to keep for mobiles.</message>	
 	<message key="plugins.themes.custom.option.headerMobileLogo">Logo</message>	
 	<message key="plugins.themes.custom.option.headerMobileTitle">Custom Title</message>	
+
+	<message key="plugins.themes.custom.option.colourTextLabel">Text Colour</message>
+	<message key="plugins.themes.custom.option.colourTextDescription">Choose the colour of text and headings.</message>
+	
 	
 </locale>
