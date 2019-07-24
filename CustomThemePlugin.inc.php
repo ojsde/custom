@@ -40,6 +40,17 @@ class CustomThemePlugin extends ThemePlugin {
 		));		
 		$colourHeading = $this->getOption('colourHeading');
 		
+		// Mobile Header: logo or custom title?
+		$this->addOption('headerMobile', 'radio', array(
+			'label' => 'plugins.themes.custom.option.headerMobileLabel',
+			'description' => 'plugins.themes.custom.option.headerMobileDescription',
+			'options' => array(
+				0 => 'plugins.themes.custom.option.headerMobileLogo',
+				1 => 'plugins.themes.custom.option.headerMobileTitle'
+			)
+		));			
+		$headerMobile = $this->getOption('headerMobile');	
+		
 		// Journal Description Position Option
 		$this->addOption('positionJournalDescription', 'radio', array(
 			'label' => 'plugins.themes.custom.option.positionJournalDescriptionLabel',
@@ -142,6 +153,12 @@ class CustomThemePlugin extends ThemePlugin {
 			$additionalLessVariables[] = '@positionSidebar: 1;';				
 		} else {
 			$additionalLessVariables[] = '@positionSidebar: 0;';		
+		}
+
+		if ($headerMobile==1) {
+			$additionalLessVariables[] = '@headerMobile: 1;';				
+		} else {
+			$additionalLessVariables[] = '@headerMobile: 0;';		
 		}
 
  $fontHeadline = $this->getOption('fontHeadline');

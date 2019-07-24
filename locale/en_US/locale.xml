@@ -56,7 +56,12 @@
 	<message key="plugins.themes.custom.option.positionSidebarDescription">Choose position of the sidebar.</message>
 	<message key="plugins.themes.custom.option.positionSidebarRight">Right</message>
 	<message key="plugins.themes.custom.option.positionSidebarLeft">Left</message>	
-	
+
+	<message key="plugins.themes.custom.option.headerMobileLabel">Mobile Header</message>	
+	<message key="plugins.themes.custom.option.headerMobileDescription">Choose which header to keep for mobiles.</message>	
+	<message key="plugins.themes.custom.option.headerMobileLogo">Logo</message>	
+	<message key="plugins.themes.custom.option.headerMobileTitle">Custom Title</message>		
+
 </locale>
 
 
