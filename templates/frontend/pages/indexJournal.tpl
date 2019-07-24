@@ -21,6 +21,7 @@
 <div class="page_index_journal">
 
 	{call_hook name="Templates::Index::journal"}
+
 	{if $homepageImage}
 		<div class="homepage_image">
 			<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
@@ -41,7 +42,7 @@
 			</h2>
 			{foreach name=announcements from=$announcements item=announcement}
 				{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
-					{break}
+					{php}break;{/php}
 				{/if}
 				{if $smarty.foreach.announcements.iteration == 1}
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
