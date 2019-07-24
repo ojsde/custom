@@ -161,24 +161,25 @@
 	.pkp_site_name a.is_img {
 		display:none;
 	}
-	@media only screen and (min-width: @screen-phone) {
-		.pkp_site_name a.is_img {
-			display:block;
-		}
-	}	
+
 }
 // keep logo
 & when (@headerMobile =1) {
 	#custom_heading {
 		display:none;
 	}
+
+}
 	@media only screen and (min-width: @screen-phone) {
 		#custom_heading {
 			display:block;
 		}
 	}	
-}
-
+	@media only screen and (min-width: @screen-phone) {
+		.pkp_site_name a.is_img {
+			display:block;
+		}
+	}	
 .galleys_links li {
 	padding-bottom: 5px;
 }
