@@ -27,7 +27,7 @@
 		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issueIdentification}
 
 		{if $issueIdentification}
-		<h2>{$issueIdentification}</h2>
+		<h2 class="custom_issue_title">{$issueIdentification}</h2>
 		{/if}
 		{include file="frontend/objects/issue_toc.tpl"}
 	{/if}
