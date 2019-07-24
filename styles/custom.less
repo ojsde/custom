@@ -157,14 +157,14 @@
 // custom title oder logo auf smartphones ausschalten
 
 // keep custom heading
-& when (@headerMobile =0) {
+& when (@headerMobile =1) {
 	.pkp_site_name a.is_img {
 		display:none;
 	}
-
 }
+
 // keep logo
-& when (@headerMobile =1) {
+& when (@headerMobile =0) {
 	#custom_heading {
 		display:none;
 	}
