@@ -52,10 +52,10 @@
 	<message key="plugins.themes.custom.option.colourFooterLabel">Footer Colour</message>	
 	<message key="plugins.themes.custom.option.colourFooterDescription">Choose background colour for the footer</message>		
 	
-
-	
-	
-
+	<message key="plugins.themes.custom.option.positionSidebarLabel">Sidebar Position</message>
+	<message key="plugins.themes.custom.option.positionSidebarDescription">Choose position of the sidebar.</message>
+	<message key="plugins.themes.custom.option.positionSidebarRight">Right</message>
+	<message key="plugins.themes.custom.option.positionSidebarLeft">Left</message>	
 	
 </locale>
 

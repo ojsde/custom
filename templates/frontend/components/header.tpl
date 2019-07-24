@@ -71,6 +71,7 @@
 						</div>
 					{/if}
 				</div>
+
 				{if $displayPageHeaderLogo}
 				<div id="custom_heading">
 					<h1><a href="{$homeUrl}">{$customHeading}</a></h1>

@@ -47,7 +47,7 @@ class CustomThemePlugin extends ThemePlugin {
 			'options' => array(
 				1 => 'plugins.themes.custom.option.positionJournalDescriptionAbove',
 				2 => 'plugins.themes.custom.option.positionJournalDescriptionBelow',
-				3 => 'plugins.themes.custom.option.positionJournalDescriptionOff'
+				0 => 'plugins.themes.custom.option.positionJournalDescriptionOff'
 			)
 		));			
 		$positionJournalDescription = $this->getOption('positionJournalDescription');		
@@ -110,6 +110,17 @@ class CustomThemePlugin extends ThemePlugin {
 		));			
 		$typeBorder = $this->getOption('typeBorder');
 		
+		// Postion Sidebar
+		$this->addOption('positionSidebar', 'radio', array(
+			'label' => 'plugins.themes.custom.option.positionSidebarLabel',
+			'description' => 'plugins.themes.custom.option.positionSidebarDescription',
+			'options' => array(
+				0 => 'plugins.themes.custom.option.positionSidebarRight',
+				1 => 'plugins.themes.custom.option.positionSidebarLeft'
+			)
+		));			
+		$positionSidebar = $this->getOption('positionSidebar');		
+		
 ////////////////////////////////////////////////////////////////////////////////////		
 				
 		//$this->removeOption('baseColour');
@@ -124,8 +135,15 @@ class CustomThemePlugin extends ThemePlugin {
 		} else if ($positionJournalDescription==2) {
 			$additionalLessVariables[] = '@positionJournalDescription: 2;';		
 		} else {
-			$additionalLessVariables[] = '@positionJournalDescription: 3;';		
-		}		
+			$additionalLessVariables[] = '@positionJournalDescription: 0;';		
+		}
+		
+		if ($positionSidebar==1) {
+			$additionalLessVariables[] = '@positionSidebar: 1;';				
+		} else {
+			$additionalLessVariables[] = '@positionSidebar: 0;';		
+		}
+
  $fontHeadline = $this->getOption('fontHeadline');
     //ChromePhp::log('$headlineFontOpt: ' . $headlineFontOpt);
     if (empty($fontHeadline) || $fontHeadline === 'MerriweatherSans') {
