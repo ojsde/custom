@@ -63,8 +63,11 @@
 	<message key="plugins.themes.custom.option.headerMobileTitle">Custom Title</message>	
 
 	<message key="plugins.themes.custom.option.colourTextLabel">Text Colour</message>
-	<message key="plugins.themes.custom.option.colourTextDescription">Choose the colour of text and headings.</message>
+	<message key="plugins.themes.custom.option.colourTextDescription">Choose the colour of text.</message>
 
+	<message key="plugins.themes.custom.option.colourHeadingsLabel">Colour h1 h2 h3</message>
+	<message key="plugins.themes.custom.option.colourHeadingsDescription">Choose the colour of h1,h2,h3-headings.</message>
+	
 </locale>
 
 

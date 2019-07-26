@@ -47,6 +47,22 @@
 	font-style: normal;
 }
 
+h1 {
+	color: @colourHeadings;
+}
+
+.cmp_breadcrumbs h1 {
+	color:@text-light;
+}
+
+h2 {
+	color: @colourHeadings;
+}
+
+h3 {
+	color: @colourHeadings;
+}
+
 .journal_description {
 		margin-left: -@base;
 		margin-right: -@base;
@@ -99,10 +115,10 @@
 	display: none;
 }
 
-.journal_description_above when (@positionJournalDescription =1) {
+.journal_description_above when (@positionJournalDescription =0) {
 	display: block;
 }
-.journal_description_below when (@positionJournalDescription =2) {
+.journal_description_below when (@positionJournalDescription =1) {
 	display: block;
 }	
 
