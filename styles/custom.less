@@ -64,7 +64,7 @@
 	
 		padding: @triple @base 0 @base;
 		border-top: @bg-border;
-		border-bottom: @bg-border;		
+		border-bottom: @bg-border;				
 
 		@media (min-width: @screen-phone) {
 			padding-left: @double;
@@ -200,5 +200,14 @@
 		color: #fff;
 	}
 }	
-	
-	
+
+// bug fix?
+.galleys_links {
+	list-style-type: none;
+	padding-left: 0px;
+}	
+
+// stört sich mit journal description	
+.cmp_announcements {
+	border-top:transparent !important;
+}

@@ -3,6 +3,7 @@
 /**
  * @file plugins/themes/default/DefaultChildThemePlugin.inc.php
  *
+ * Copyright (c) 2019 Freie Universität Berlin
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,9 +16,7 @@
 import('lib.pkp.classes.plugins.ThemePlugin');
 
 class CustomThemePlugin extends ThemePlugin {
-	
-	
-	
+
 	/**
 	 * Initialize the theme's styles, scripts and hooks. This is only run for
 	 * the currently active theme.
@@ -25,6 +24,7 @@ class CustomThemePlugin extends ThemePlugin {
 	 * @return null
 	 */
 	public function init() {
+
 		$this->setParent('defaultthemeplugin');
 		
 		//heading
@@ -100,6 +100,7 @@ class CustomThemePlugin extends ThemePlugin {
 			'MerriweatherSans' => 'plugins.themes.custom.option.FontMerriweatherSans'
 		  )
 		));
+		$fontHeadline = $this->getOption('fontHeadline');		
 
 		// Journal Body font
 		$this->addOption('fontBody', 'radio', array(
@@ -116,7 +117,8 @@ class CustomThemePlugin extends ThemePlugin {
 			'MerriweatherSans' => 'plugins.themes.custom.option.FontMerriweatherSans'
 		  )
 		));		
-		
+		$fontBody = $this->getOption('fontBody');
+	
 		// Borders
 		$this->addOption('typeBorder', 'radio', array(
 			'label' => 'plugins.themes.custom.option.typeBorderLabel',
@@ -167,46 +169,44 @@ class CustomThemePlugin extends ThemePlugin {
 		} else {
 			$additionalLessVariables[] = '@headerMobile: 0;';		
 		}
+		
+		//ChromePhp::log('$bodyFontOpt: ' . $bodyFontOpt);
+		if (empty($fontBody) || $fontBody === 'MerriweatherSans') {
+			$additionalLessVariables[] = '@font: \'MerriweatherSans\';';
+		} elseif ($fontBody === 'Georgia') {
+			$additionalLessVariables[] = '@font: \'Georgia\';';
+		} elseif ($fontBody === 'NotoSans') {
+			$additionalLessVariables[] = '@font: \'NotoSans\';';
+		} elseif ($fontBody === 'NotoSerif') {
+			$additionalLessVariables[] = '@font: \'NotoSerif\';';
+		} elseif ($fontBody === 'FiraSans') {
+			$additionalLessVariables[] = '@font: \'FiraSans\';';
+		} elseif ($fontBody === 'SourceSansPro') {
+			$additionalLessVariables[] = '@font: \'SourceSansPro\';';
+		} elseif ($fontBody === 'Merriweather') {
+			$additionalLessVariables[] = '@font: \'Merriweather\';';
+		} else {
+			$additionalLessVariables[] = '@font: \'Arial\';';
+		}		
 
- $fontHeadline = $this->getOption('fontHeadline');
-    //ChromePhp::log('$headlineFontOpt: ' . $headlineFontOpt);
-    if (empty($fontHeadline) || $fontHeadline === 'MerriweatherSans') {
-      $additionalLessVariables[] = '@fontHeadline: \'MerriweatherSans\';';
-    } elseif ($fontHeadline === 'Georgia') {
-      $additionalLessVariables[] = '@fontHeadline: \'Georgia\';';
-    } elseif ($fontHeadline === 'NotoSans') {
-      $additionalLessVariables[] = '@fontHeadline: \'NotoSans\';';
-    } elseif ($fontHeadline === 'NotoSerif') {
-      $additionalLessVariables[] = '@fontHeadline: \'NotoSerif\';';
-    } elseif ($fontHeadline === 'FiraSans') {
-      $additionalLessVariables[] = '@fontHeadline: \'FiraSans\';';
-    } elseif ($fontHeadline === 'SourceSansPro') {
-      $additionalLessVariables[] = '@fontHeadline: \'SourceSansPro\';';
-    } elseif ($fontHeadline === 'Merriweather') {
-      $additionalLessVariables[] = '@fontHeadline: \'Merriweather\';';
-    } else {
-      $additionalLessVariables[] = '@fontHeadline: \'Arial\';';
-    }
-    $fontBody = $this->getOption('fontBody');
-    //ChromePhp::log('$bodyFontOpt: ' . $bodyFontOpt);
-    if (empty($fontBody) || $fontBody === 'MerriweatherSans') {
-      $additionalLessVariables[] = '@fontBody: \'MerriweatherSans\';';
-    } elseif ($fontBody === 'Georgia') {
-      $additionalLessVariables[] = '@fontBody: \'Georgia\';';
-    } elseif ($fontBody === 'NotoSans') {
-      $additionalLessVariables[] = '@fontBody: \'NotoSans\';';
-    } elseif ($fontBody === 'NotoSerif') {
-      $additionalLessVariables[] = '@fontBody: \'NotoSerif\';';
-    } elseif ($fontBody === 'FiraSans') {
-      $additionalLessVariables[] = '@fontBody: \'FiraSans\';';
-    } elseif ($fontBody === 'SourceSansPro') {
-      $additionalLessVariables[] = '@fontBody: \'SourceSansPro\';';
-    } elseif ($fontBody === 'Merriweather') {
-      $additionalLessVariables[] = '@fontBody: \'Merriweather\';';
-    } else {
-      $additionalLessVariables[] = '@fontBody: \'Arial\';';
-    }		
-				
+		//ChromePhp::log('$headlineFontOpt: ' . $headlineFontOpt);
+		if (empty($fontHeadline) || $fontHeadline === 'MerriweatherSans') {
+			$additionalLessVariables[] = '@font-heading: \'MerriweatherSans\';';
+		} elseif ($fontHeadline === 'Georgia') {
+			$additionalLessVariables[] = '@font-heading: \'Georgia\';';
+		} elseif ($fontHeadline === 'NotoSans') {
+			$additionalLessVariables[] = '@font-heading: \'NotoSans\';';
+		} elseif ($fontHeadline === 'NotoSerif') {
+			$additionalLessVariables[] = '@font-heading: \'NotoSerif\';';
+		} elseif ($fontHeadline === 'FiraSans') {
+			$additionalLessVariables[] = '@font-heading: \'FiraSans\';';
+		} elseif ($fontHeadline === 'SourceSansPro') {
+			$additionalLessVariables[] = '@font-heading: \'SourceSansPro\';';
+		} elseif ($fontHeadline === 'Merriweather') {
+			$additionalLessVariables[] = '@font-heading: \'Merriweather\';';
+		} else {
+			$additionalLessVariables[] = '@font-heading: \'Arial\';';
+		}
 		
 		// Update colour based on theme option
 		$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';		
@@ -218,8 +218,6 @@ class CustomThemePlugin extends ThemePlugin {
 		
 		$additionalLessVariables[] = '@primary:' . $colourLinks . ';';
 		$additionalLessVariables[] = '@colour-heading: ' . $colourHeading . ';';
-		$additionalLessVariables[] = '@font: @fontBody;';	
-		$additionalLessVariables[] = '@font-heading: @fontHeadline;';
 		$additionalLessVariables[] = '@text: ' . $colourText . ';';	
 		
 		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';	
@@ -236,8 +234,7 @@ class CustomThemePlugin extends ThemePlugin {
 		if (!empty($additionalLessVariables)) {
 			$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		}
-	
-		//HookRegistry::register('TemplateManager::include', array(&$this, 'handleIncludeTemplate'));
+
 		// Get extra data for templates
 		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));		
 	}
@@ -277,7 +274,6 @@ class CustomThemePlugin extends ThemePlugin {
 			));
 		//}
 	}
-	
 
 	/**
 	 * Get the display name of this plugin
