@@ -36,7 +36,7 @@ class CustomThemePlugin extends ThemePlugin {
 		$this->addOption('colourHeading', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
 		  'description' => 'plugins.themes.custom.option.colourHeadingDescription',
-		  'default' => '#fff'
+		  'default' => '#ffffff'
 		));		
 		$colourHeading = $this->getOption('colourHeading');
 		
@@ -56,80 +56,88 @@ class CustomThemePlugin extends ThemePlugin {
 			'label' => 'plugins.themes.custom.option.positionJournalDescriptionLabel',
 			'description' => 'plugins.themes.custom.option.positionJournalDescriptionDescription',
 			'options' => array(
-				1 => 'plugins.themes.custom.option.positionJournalDescriptionAbove',
-				2 => 'plugins.themes.custom.option.positionJournalDescriptionBelow',
-				0 => 'plugins.themes.custom.option.positionJournalDescriptionOff'
+				0 => 'plugins.themes.custom.option.positionJournalDescriptionAbove',
+				1 => 'plugins.themes.custom.option.positionJournalDescriptionBelow',
+				2 => 'plugins.themes.custom.option.positionJournalDescriptionOff'
 			)
 		));			
 		$positionJournalDescription = $this->getOption('positionJournalDescription');		
 		
 		$this->addOption('colourFooter', 'colour', array(
-		  'label' => 'plugins.themes.custom.option.colourFooterLabel',
-		  'description' => 'plugins.themes.custom.option.colourFooterDescription',
-		  'default' => '#ddd'
-		));		
-		$colourFooter = $this->getOption('colourFooter');		
+			'label' => 'plugins.themes.custom.option.colourFooterLabel',
+			'description' => 'plugins.themes.custom.option.colourFooterDescription',
+			'default' => '#bfbfbf',
+		));
+		$colourFooter = $this->getOption('colourFooter');	
 		
 		$this->addOption('colourLinks', 'colour', array(
-		  'label' => 'plugins.themes.custom.option.colourLinksLabel',
-		  'description' => 'plugins.themes.custom.option.colourLinksDescription',
-		  'default' => '#009de5;'
+			'label' => 'plugins.themes.custom.option.colourLinksLabel',
+			'description' => 'plugins.themes.custom.option.colourLinksDescription',
+			'default' => '#009de5',
 		));		
 		$colourLinks = $this->getOption('colourLinks');
 
 		$this->addOption('colourText', 'colour', array(
-		  'label' => 'plugins.themes.custom.option.colourTextLabel',
-		  'description' => 'plugins.themes.custom.option.colourTextDescription',
-		  'default' => '#bbb;'
-		));		
-		$colourText = $this->getOption('colourText');		
+			'label' => 'plugins.themes.custom.option.colourTextLabel',
+			'description' => 'plugins.themes.custom.option.colourTextDescription',
+			'default' => '#2c2c2c',
+		));
+		$colourText = $this->getOption('colourText');
+
+		$this->addOption('colourHeadings', 'colour', array(
+			'label' => 'plugins.themes.custom.option.colourHeadingsLabel',
+			'description' => 'plugins.themes.custom.option.colourHeadingsDescription',
+			'default' => '#2c2c2c',
+		));
+		$colourHeadings = $this->getOption('colourHeadings');
 		
 		// Journal Headling font
 		$this->addOption('fontHeadline', 'radio', array(
-		  'label' => 'plugins.themes.custom.option.fontHeadlineLabel',
-		  'description' => 'plugins.themes.custom.option.fontHeadlineDescription',
-		  'default' => 'NotoSans',		  
-		  'options' => array(
-			'Arial' => 'plugins.themes.custom.option.FontArial',
-			'Georgia' => 'plugins.themes.custom.option.FontGeorgia',
-			'NotoSans' => 'plugins.themes.custom.option.FontNotoSans',
-			'NotoSerif' => 'plugins.themes.custom.option.FontNotoSerif',
-			'FiraSans' => 'plugins.themes.custom.option.FontFiraSans',
-			'SourceSansPro' => 'plugins.themes.custom.option.FontSourceSansPro',
-			'Merriweather' => 'plugins.themes.custom.option.FontMerriweather',
-			'MerriweatherSans' => 'plugins.themes.custom.option.FontMerriweatherSans'
-		  )
+			'label' => 'plugins.themes.custom.option.fontHeadlineLabel',
+			'description' => 'plugins.themes.custom.option.fontHeadlineDescription',
+			'default' => 'NotoSans',	  
+			'options' => array(
+				'Arial' => 'plugins.themes.custom.option.FontArial',
+				'Georgia' => 'plugins.themes.custom.option.FontGeorgia',
+				'NotoSans' => 'plugins.themes.custom.option.FontNotoSans',
+				'NotoSerif' => 'plugins.themes.custom.option.FontNotoSerif',
+				'FiraSans' => 'plugins.themes.custom.option.FontFiraSans',
+				'SourceSansPro' => 'plugins.themes.custom.option.FontSourceSansPro',
+				'Merriweather' => 'plugins.themes.custom.option.FontMerriweather',
+				'MerriweatherSans' => 'plugins.themes.custom.option.FontMerriweatherSans'
+			)
 		));
-		$fontHeadline = $this->getOption('fontHeadline');		
+		$fontHeadline = $this->getOption('fontHeadline');
 
 		// Journal Body font
 		$this->addOption('fontBody', 'radio', array(
-		  'label' => 'plugins.themes.custom.option.fontBodyLabel',
-		  'description' => 'plugins.themes.custom.option.fontBodyDescription',
-		  'options' => array(
-			'Arial' => 'plugins.themes.custom.option.FontArial',
-			'Georgia' => 'plugins.themes.custom.option.FontGeorgia',
-			'NotoSans' => 'plugins.themes.custom.option.FontNotoSans',
-			'NotoSerif' => 'plugins.themes.custom.option.FontNotoSerif',
-			'FiraSans' => 'plugins.themes.custom.option.FontFiraSans',
-			'SourceSansPro' => 'plugins.themes.custom.option.FontSourceSansPro',
-			'Merriweather' => 'plugins.themes.custom.option.FontMerriweather',
-			'MerriweatherSans' => 'plugins.themes.custom.option.FontMerriweatherSans'
-		  )
+			'label' => 'plugins.themes.custom.option.fontBodyLabel',
+			'description' => 'plugins.themes.custom.option.fontBodyDescription',
+			'default' => 'NotoSans',			
+			'options' => array(
+				'Arial' => 'plugins.themes.custom.option.FontArial',
+				'Georgia' => 'plugins.themes.custom.option.FontGeorgia',
+				'NotoSans' => 'plugins.themes.custom.option.FontNotoSans',
+				'NotoSerif' => 'plugins.themes.custom.option.FontNotoSerif',
+				'FiraSans' => 'plugins.themes.custom.option.FontFiraSans',
+				'SourceSansPro' => 'plugins.themes.custom.option.FontSourceSansPro',
+				'Merriweather' => 'plugins.themes.custom.option.FontMerriweather',
+				'MerriweatherSans' => 'plugins.themes.custom.option.FontMerriweatherSans'
+			)
 		));		
 		$fontBody = $this->getOption('fontBody');
-	
+
 		// Borders
 		$this->addOption('typeBorder', 'radio', array(
 			'label' => 'plugins.themes.custom.option.typeBorderLabel',
 			'description' => 'plugins.themes.custom.option.typeBorderDescription',
 			'options' => array(
-				1 => 'plugins.themes.custom.option.typeBorderOn',
-				0 => 'plugins.themes.custom.option.typeBorderOff'
+				0 => 'plugins.themes.custom.option.typeBorderOn',
+				1 => 'plugins.themes.custom.option.typeBorderOff'
 			)
 		));			
 		$typeBorder = $this->getOption('typeBorder');
-		
+
 		// Postion Sidebar
 		$this->addOption('positionSidebar', 'radio', array(
 			'label' => 'plugins.themes.custom.option.positionSidebarLabel',
@@ -138,11 +146,11 @@ class CustomThemePlugin extends ThemePlugin {
 				0 => 'plugins.themes.custom.option.positionSidebarRight',
 				1 => 'plugins.themes.custom.option.positionSidebarLeft'
 			)
-		));			
+		));
 		$positionSidebar = $this->getOption('positionSidebar');		
-		
+
 ////////////////////////////////////////////////////////////////////////////////////		
-				
+
 		//$this->removeOption('baseColour');
 		$this->removeOption('typography');	
 		$this->modifyStyle('stylesheet', array('addLess' => array('styles/custom.less')));
@@ -150,26 +158,26 @@ class CustomThemePlugin extends ThemePlugin {
 		
 		$additionalLessVariables = array();	
 		// todo: warum muss man diese Verrenkung machen?
-		if ($positionJournalDescription==1) {
-			$additionalLessVariables[] = '@positionJournalDescription: 1;';		
-		} else if ($positionJournalDescription==2) {
-			$additionalLessVariables[] = '@positionJournalDescription: 2;';		
-		} else {
+		if ($positionJournalDescription==0) {
 			$additionalLessVariables[] = '@positionJournalDescription: 0;';		
-		}
-		
-		if ($positionSidebar==1) {
-			$additionalLessVariables[] = '@positionSidebar: 1;';				
+		} else if ($positionJournalDescription==1) {
+			$additionalLessVariables[] = '@positionJournalDescription: 1;';		
 		} else {
-			$additionalLessVariables[] = '@positionSidebar: 0;';		
+			$additionalLessVariables[] = '@positionJournalDescription: 2;';		
 		}
 
-		if ($headerMobile==1) {
-			$additionalLessVariables[] = '@headerMobile: 1;';				
+		if ($positionSidebar==0) {
+			$additionalLessVariables[] = '@positionSidebar: 0;';				
 		} else {
-			$additionalLessVariables[] = '@headerMobile: 0;';		
+			$additionalLessVariables[] = '@positionSidebar: 1;';		
 		}
-		
+
+		if ($headerMobile==0) {
+			$additionalLessVariables[] = '@headerMobile: 0;';				
+		} else {
+			$additionalLessVariables[] = '@headerMobile: 1;';		
+		}
+
 		//ChromePhp::log('$bodyFontOpt: ' . $bodyFontOpt);
 		if (empty($fontBody) || $fontBody === 'MerriweatherSans') {
 			$additionalLessVariables[] = '@font: \'MerriweatherSans\';';
@@ -185,9 +193,11 @@ class CustomThemePlugin extends ThemePlugin {
 			$additionalLessVariables[] = '@font: \'SourceSansPro\';';
 		} elseif ($fontBody === 'Merriweather') {
 			$additionalLessVariables[] = '@font: \'Merriweather\';';
-		} else {
+		} elseif ($fontBody === 'Arial')  {
 			$additionalLessVariables[] = '@font: \'Arial\';';
-		}		
+		} else {
+			$additionalLessVariables[] = '@font: \'NotoSans\';';			
+		}
 
 		//ChromePhp::log('$headlineFontOpt: ' . $headlineFontOpt);
 		if (empty($fontHeadline) || $fontHeadline === 'MerriweatherSans') {
@@ -204,30 +214,33 @@ class CustomThemePlugin extends ThemePlugin {
 			$additionalLessVariables[] = '@font-heading: \'SourceSansPro\';';
 		} elseif ($fontHeadline === 'Merriweather') {
 			$additionalLessVariables[] = '@font-heading: \'Merriweather\';';
-		} else {
+		} elseif ($fontHeadline === 'Arial') {
 			$additionalLessVariables[] = '@font-heading: \'Arial\';';
+		} else {
+			$additionalLessVariables[] = '@font-heading: \'NotoSans\';';			
 		}
-		
+
 		// Update colour based on theme option
 		$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';		
 		if ($this->getOption('baseColour') !== '#1E6292') {
 			if (!$this->isColourDark($this->getOption('baseColour'))) {
 				$additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
 			}
-		}		
-		
+		}
+
 		$additionalLessVariables[] = '@primary:' . $colourLinks . ';';
 		$additionalLessVariables[] = '@colour-heading: ' . $colourHeading . ';';
 		$additionalLessVariables[] = '@text: ' . $colourText . ';';	
-		
-		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';	
+		$additionalLessVariables[] = '@colourHeadings: ' . $colourHeadings . ';';					
+		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';
+
 		if ($this->isColourDark($colourFooter)) {
 			$additionalLessVariables[] = '@footer-dark: 1;';
 		} else {
 			$additionalLessVariables[] = '@footer-dark: 0;';			
 		}
 		
-		if ($typeBorder==0) {
+		if ($typeBorder==1) {
 			$additionalLessVariables[] = '@bg-border: transparent;';	
 		}
 	
