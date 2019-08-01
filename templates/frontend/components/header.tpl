@@ -77,13 +77,11 @@
 
 				{assign var="homepageImageUrl" value="{$publicFilesDir}/{$homepageImageName}"}
 
-
-					<div class="custom_hero_wrapper" style="background-image:url({$homepageImageUrl})">
-						<div id="custom_hero">
-							<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
-						</div>
-					</div>				
-	
+				<div class="custom_hero_wrapper" style="background-image:url({$homepageImageUrl})">
+					<div id="custom_hero">
+						<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
+					</div>
+				</div>				
 					
 				</div>
 				
@@ -115,8 +113,23 @@
 							<a href="{$homeUrl}" class="is_img">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 							</a>
+							
+							<div class="custom_heading_wrapper">
+								<div id="custom_heading">
+									<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
+								</div>
+							</div>
+							
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
 							<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
+							
+							<div class="custom_heading_wrapper">
+								<div id="custom_heading">
+									<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
+								</div>
+							</div>
+					
+					
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
 							<a href="{$homeUrl}" class="is_img">
 								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
@@ -131,13 +144,13 @@
 					{else}
 						</div>
 					{/if}
+					
+					
+			
+					
 				</div>
 
-				<div class="custom_heading_wrapper">
-					<div id="custom_heading">
-						<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
-					</div>
-				</div>
+	
 				
 				{* Primary site navigation *}
 				{capture assign="primaryMenu"}
