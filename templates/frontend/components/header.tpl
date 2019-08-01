@@ -30,12 +30,73 @@
 		<a href="#pkp_content_footer">{translate key="navigation.skip.footer"}</a>
 	</div>
 	<div class="pkp_structure_page">
-
+			
 		{* Header *}
 		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
-			<div class="pkp_head_wrapper">
 
-				<div class="pkp_site_name_wrapper">
+			{if $heroHeader} 
+				<div class="custom_hero_header_wrapper">
+				<div class="pkp_head_wrapper">												
+				<div class="pkp_site_name_wrapper custom_site_name_wrapper ">
+					{* Logo or site title. Only use <h1> heading on the homepage.
+					   Otherwise that should go to the page title. *}
+					{if $requestedOp == 'index'}
+						<h1 class="pkp_site_name">
+					{else}
+						<div class="pkp_site_name">
+					{/if}
+						{capture assign="homeUrl"}
+							{if $currentContext && $multipleContexts}
+								{url page="index" router=$smarty.const.ROUTE_PAGE}
+							{else}
+								{url context="index" router=$smarty.const.ROUTE_PAGE}
+							{/if}
+						{/capture}
+						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+							<a href="{$homeUrl}" class="is_img">
+								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+							</a>
+						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+							<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
+						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
+							<a href="{$homeUrl}" class="is_img">
+								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
+							</a>
+						{else}
+							<a href="{$homeUrl}" class="is_img">
+								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
+							</a>
+						{/if}
+					{if $requestedOp == 'index'}
+						</h1>
+					{else}
+						</div>
+					{/if}
+				</div>
+				</div>			
+
+				{assign var="homepageImageUrl" value="{$publicFilesDir}/{$homepageImageName}"}
+
+
+					<div class="custom_hero_wrapper" style="background-image:url({$homepageImageUrl})">
+						<div id="custom_hero">
+							<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
+						</div>
+					</div>				
+	
+					
+				</div>
+				
+				{** Primary Navigation **}							
+				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapperHero" aria-label="{translate|escape key="common.navigation.user"}">
+					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+				</nav>
+
+			{/if}		
+	
+			<div class="pkp_head_wrapper">
+		
+				<div class="pkp_site_name_wrapper  default_site_name_wrapper">
 					{* Logo or site title. Only use <h1> heading on the homepage.
 					   Otherwise that should go to the page title. *}
 					{if $requestedOp == 'index'}
@@ -72,12 +133,12 @@
 					{/if}
 				</div>
 
-				{if $displayPageHeaderLogo}
-				<div id="custom_heading">
-					<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
-				</div>				
-				{/if}
-
+				<div class="custom_heading_wrapper">
+					<div id="custom_heading">
+						<h1><a href="{$homeUrl}">{$customHeading}</a></h1>
+					</div>
+				</div>
+				
 				{* Primary site navigation *}
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
@@ -100,6 +161,7 @@
 				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</nav>
+				
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
 

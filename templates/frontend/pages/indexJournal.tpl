@@ -21,7 +21,7 @@
 <div class="page_index_journal">
 
 	{call_hook name="Templates::Index::journal"}
-	{if $homepageImage}
+	{if $homepageImage and not $heroHeader}
 		<div class="homepage_image">
 			<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
 		</div>

@@ -1,3 +1,7 @@
+
+
+/*********** Schriften **************/
+
 @font-face {
 	font-family: "NotoSans";
 	src: url('../../../../../plugins/themes/custom/fonts/NotoSans-normal-normal.eot');
@@ -47,6 +51,8 @@
 	font-style: normal;
 }
 
+/*********** Farben allgemein **************/
+
 h1 {
 	color: @colourHeadings;
 }
@@ -62,6 +68,8 @@ h2 {
 h3 {
 	color: @colourHeadings;
 }
+
+/*********** journal description **************/
 
 .journal_description {
 		margin-left: -@base;
@@ -122,8 +130,20 @@ h3 {
 	display: block;
 }	
 
+// Border weg, stört sich mit journal description
+& when not (@positionJournalDescription =2) {
 
-/* left sidebar */
+	.journal_description {
+		border-top:transparent !important;
+	}
+}
+
+	.cmp_announcements {
+		border-top:transparent !important;
+	}
+	
+/*********** left sidebar **************/
+
 & when (@positionSidebar =1) {
 @media(min-width: 992px) {
   .pkp_structure_sidebar {
@@ -150,13 +170,8 @@ h3 {
 }
 /* ende left sidebar */
 
-#custom_heading h1 a {
-	color: @colour-heading;
-	text-decoration:none;
-	line-height:30px;
-	font-size:24px;
-	font-family: @font-heading;
-}
+
+/*********** footer **************/
 
 .pkp_brand_footer img {
 	width: 100px;
@@ -166,6 +181,22 @@ h3 {
 	background-color: @colour-footer;
 }
 
+// footer text white for dark background
+& when (@footer-dark =1) {
+	.pkp_footer_content {
+		color: #fff;
+	}
+}
+
+/*********** custom header **************/
+
+#custom_heading h1 a {
+	color: @colourHeading;
+	text-decoration:none;
+	line-height:30px;
+	font-size:24px;
+	font-family: @fontHeadlines;
+}
 
 // custom title oder logo auf smartphones ausschalten
 
@@ -175,55 +206,151 @@ h3 {
 		display:none;
 	}
 }
-
 // keep logo
 & when (@headerMobile =0) {
 	#custom_heading {
 		display:none;
 	}
-
 }
-	@media only screen and (min-width: @screen-phone) {
-		#custom_heading {
-			display:block;
-		}
-	}	
-	@media only screen and (min-width: @screen-phone) {
-		.pkp_site_name a.is_img {
-			display:block;
-		}
-	}	
+@media only screen and (min-width: @screen-phone) {
+	#custom_heading {
+		display:block;
+	}
+}	
+@media only screen and (min-width: @screen-phone) {
+	.pkp_site_name a.is_img {
+		display:block;
+	}
+}	
+
+/*********** Sonstiges **************/
+
+// bug fix: die Buttons haben keine Abstand
 .galleys_links li {
 	padding-bottom: 5px;
 }
 
-// Abstände bei Sections kleiner, mobile: da würde es sich übereinander schieben
+// bug fix: issue galleys haben bullet points
+.galleys_links {
+	list-style-type: none;
+	padding-left: 0px;
+}	
+
+// Abstände der Artikel zwischen Sections kleiner, mobile: da würde es sich übereinander schieben
 
 @media only screen and (min-width: 768px) {
 	.section {
 		 margin-top:-80px !important;	 
 	}
 }
-
 .custom_issue_title {
 	margin-top:0px !important;
 	margin-bottom: 10px !important;
 }
 
-// footer text white for dark background
-& when (@footer-dark =1) {
-	.pkp_footer_content {
-		color: #fff;
-	}
-}	
 
 // bug fix?
-.galleys_links {
-	list-style-type: none;
-	padding-left: 0px;
-}	
-
-// stört sich mit journal description	
-.cmp_announcements {
-	border-top:transparent !important;
+@media only screen and (min-width: 768px) and (max-width: 991px)  {
+	.pkp_structure_main {
+		padding-top:0;
+	}
 }
+
+
+
+
+/*********** Hero Bild und Claim **************/
+
+.custom_hero_header_wrapper {
+	display:none;
+}
+
+#navigationUserWrapperHero {
+	display:none;
+}
+
+@media only screen and (min-width: 480px)   {
+
+	& when (@heroHeader =1) {	
+	
+		#custom_hero a {
+			color: @colourHeading;
+		}
+
+		#custom_hero {
+			font-family: @fontHeadlines;
+		}
+
+		#custom_hero a:hover {
+			color: @colourHeading;
+		}	
+	
+		.pkp_structure_main{
+			padding-top:0;
+		}	
+	
+		.pkp_head_wrapper {
+			padding-top:10px !important;
+		}	
+		.default_site_name_wrapper {
+			display:none;
+		}
+		.custom_heading_wrapper {
+			display:none;
+		}
+		#navigationUserWrapperHero {
+			display:block;
+		}
+		
+		#navigationUserWrapper {
+			display:none;
+		}		
+		.custom_hero_header_wrapper {
+			display:block;
+		}	
+		.pkp_structure_content {
+		
+		}		
+	}
+	
+	.custom_hero_wrapper {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;	
+		height: @heroHeight;	
+		position:relative;
+	}
+	
+	#custom_hero {
+		position: absolute;
+		top:  29%;
+		left: 32%;
+		transform: translate(-24%, -22%);
+	}
+	
+	#custom_hero a {
+		font-size: 40px;
+		line-height: 50px;
+		text-decoration:none;
+	}
+}
+		
+// kleine Bildschirme: Schriftgröße verkleinern, andere Mitte
+		
+@media only screen and (max-width: 991px)   {
+	
+	#custom_hero {
+	//	position: absolute;
+	//	top: 27%;
+	//	left: 30%;
+	//	transform: translate(-20%, -20%);	
+	}
+	
+	#custom_hero a {
+		font-size: 32px;
+		line-height: 42px;
+	}	
+}		
+
+
+
