@@ -51,6 +51,57 @@
 	font-style: normal;
 }
 
+@font-face {
+    font-family: 'LinuxLibertine'; /* normal */
+    src: url('../../../../../plugins/themes/custom/fonts/LinLibertine_R.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LinuxLibertine'; /* italic */
+    src: url('../../../../../plugins/themes/custom/fonts/LinLibertine_RI.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LinuxLibertine'; /* bold */
+    src: url('../../../../../plugins/themes/custom/fonts/LinLibertine_RB.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LinuxLibertine'; /* bold */
+    src: url('../../../../../plugins/themes/custom/fonts/LinLibertine_RBI.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+
+@font-face {
+    font-family: 'LinuxBiolinum'; /* normal */
+    src: url('../../../../../plugins/themes/custom/fonts/LinBiolinum_R.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LinuxBiolinum'; /* italic */
+    src: url('../../../../../plugins/themes/custom/fonts/LinBiolinum_RI.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LinuxBiolinum'; /* bold */
+    src: url('../../../../../plugins/themes/custom/fonts/LinBiolinum_RB.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 /*********** Farben allgemein **************/
 
 h1 {
@@ -191,7 +242,7 @@ h3 {
 /*********** custom header **************/
 
 #custom_heading h1 a {
-	color: @colourHeading;
+	color: @text-bg-base;
 	text-decoration:none;
 	line-height:30px;
 	font-size:24px;
@@ -201,31 +252,37 @@ h3 {
 // custom title oder logo auf smartphones ausschalten
 
 // keep custom heading
-& when (@headerMobile =1) {
+& when (@headerMobile=1) {
 	.pkp_site_name a.is_img {
 		display:none;
 	}
 }
 // keep logo
-& when (@headerMobile =0) {
+& when (@headerMobile=0) {
 	#custom_heading {
 		display:none;
 	}
 }
 @media only screen and (min-width: @screen-phone) {
 	#custom_heading {
-		display:block;
-	}
-}	
-@media only screen and (min-width: @screen-phone) {
+		display:block;		
+	}	
 	.pkp_site_name a.is_img {
 		display:block;
 	}
-}	
+	#custom_heading h1 a {
+		color: @colourHeading;		
+	}		
+}
+
+
+
+
+	
 
 /*********** Sonstiges **************/
 
-// bug fix: die Buttons haben keine Abstand
+// bug fix: die Buttons haben keinen Abstand
 .galleys_links li {
 	padding-bottom: 5px;
 }
@@ -256,22 +313,23 @@ h3 {
 	}
 }
 
-
-
-
 /*********** Hero Bild und Claim **************/
 
-.custom_hero_header_wrapper {
-	display:none;
-}
-
-#navigationUserWrapperHero {
+.custom_hero_wrapper {
 	display:none;
 }
 
 @media only screen and (min-width: 480px)   {
 
-	& when (@heroHeader =1) {	
+& when (@heroHeader=1) {
+
+		.custom_heading_wrapper {
+			display:none;
+		}
+		
+		.custom_hero_wrapper {
+			display:block;
+		}		
 	
 		#custom_hero a {
 			color: @colourHeading;
@@ -291,27 +349,7 @@ h3 {
 	
 		.pkp_head_wrapper {
 			padding-top:10px !important;
-		}	
-		.default_site_name_wrapper {
-			display:none;
 		}
-		.custom_heading_wrapper {
-			display:none;
-		}
-		#navigationUserWrapperHero {
-			display:block;
-		}
-		
-		#navigationUserWrapper {
-			display:none;
-		}		
-		.custom_hero_header_wrapper {
-			display:block;
-		}	
-		.pkp_structure_content {
-		
-		}		
-	}
 	
 	.custom_hero_wrapper {
 		background-repeat: no-repeat;
@@ -333,12 +371,13 @@ h3 {
 		line-height: 54px;
 		text-decoration:none;
 	}
+	}
 }
 		
 // kleine Bildschirme: Schriftgröße verkleinern, andere Mitte
 		
 @media only screen and (max-width: 991px)   {
-	
+& when (@heroHeader=1) {	
 	#custom_hero {
 	//	position: absolute;
 	//	top: 27%;
@@ -349,7 +388,8 @@ h3 {
 	#custom_hero a {
 		font-size: 32px;
 		line-height: 44px;
-	}	
+	}
+}
 }		
 
 

@@ -31,7 +31,7 @@ class CustomThemePlugin extends ThemePlugin {
 		$this->addOption('heading', 'text', array(
 			'label' => 'plugins.themes.custom.option.headingLabel',
 			'description' => 'plugins.themes.custom.option.headingDescription'
-		));		
+		));	
 				
 		$this->addOption('colourHeading', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
@@ -201,7 +201,7 @@ class CustomThemePlugin extends ThemePlugin {
 		}
 
 		// Get extra data for templates
-		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));		
+		HookRegistry::register('TemplateManager::display', array($this, 'loadTemplateData'));		
 	}
 	
 	/**
@@ -220,9 +220,6 @@ class CustomThemePlugin extends ThemePlugin {
 		));
 	}
 
-	
-
-	
 	/**
 	 * Get the display name of this plugin
 	 * @return string
@@ -238,6 +235,7 @@ class CustomThemePlugin extends ThemePlugin {
 	function getDescription() {
 		return __('plugins.themes.custom.description');
 	}
+
 }
 
 ?>

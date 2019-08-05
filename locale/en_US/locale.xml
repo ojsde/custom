@@ -17,7 +17,7 @@
 	
 	
 	<message key="plugins.themes.custom.option.headingLabel">Heading</message>
-	<message key="plugins.themes.custom.option.headingDescription">Enter heading / title</message>
+	<message key="plugins.themes.custom.option.headingDescription">Enter a custom heading / hero claim (see option 'Hero Header' below).</message>
 	<message key="plugins.themes.custom.option.positionJournalDescriptionLabel">Position Journal Description</message>
 	<message key="plugins.themes.custom.option.positionJournalDescriptionDescription">Enter position of journal description.</message>
 	<message key="plugins.themes.custom.option.positionJournalDescriptionAbove">Above Announcements</message>	
@@ -25,10 +25,10 @@
 	<message key="plugins.themes.custom.option.positionJournalDescriptionOff">Don't show</message>	
 
 	<message key="plugins.themes.custom.option.colourHeadingLabel">Heading Colour</message>	
-	<message key="plugins.themes.custom.option.colourHeadingDescription">Choose the Ccolour of the custom heading.</message>	
+	<message key="plugins.themes.custom.option.colourHeadingDescription">Choose the colour of the custom heading / hero claim.</message>	
 	
 	<message key="plugins.themes.custom.option.colourLinksLabel">Link Colour</message>	
-	<message key="plugins.themes.custom.option.colourLinksDescription">Choose colour of links</message>
+	<message key="plugins.themes.custom.option.colourLinksDescription">Choose the colour of links.</message>
 	
 	<message key="plugins.themes.custom.option.typeBorderLabel">Borders</message>
 	<message key="plugins.themes.custom.option.typeBorderDescription">Set borders.</message>
@@ -46,7 +46,7 @@
 	<message key="plugins.themes.custom.option.headerMobileLabel">Mobile Header</message>	
 	<message key="plugins.themes.custom.option.headerMobileDescription">Choose which header to keep for mobiles.</message>	
 	<message key="plugins.themes.custom.option.headerMobileLogo">Logo</message>	
-	<message key="plugins.themes.custom.option.headerMobileTitle">Custom Title</message>	
+	<message key="plugins.themes.custom.option.headerMobileTitle">Custom Heading / Hero Claim</message>	
 
 	<message key="plugins.themes.custom.option.colourTextLabel">Text Colour</message>
 	<message key="plugins.themes.custom.option.colourTextDescription">Choose the colour of text.</message>
@@ -60,13 +60,11 @@
 	<message key="plugins.themes.custom.option.heroHeaderOn">On</message>
 	
 	<message key="plugins.themes.custom.option.fontHeadlinesLabel">Font Headings</message>
-	<message key="plugins.themes.custom.option.fontHeadlinesDescription">Choose one of: Arial, Georgia, NotoSans, NotoSerif, FiraSans, SourceSansPro, Merriweather, MerriweatherSans. </message>
+	<message key="plugins.themes.custom.option.fontHeadlinesDescription">Choose one of: Arial, Georgia, NotoSans, NotoSerif, FiraSans, SourceSansPro, Merriweather, MerriweatherSans, LinuxLibertine, LinuxBiolinum. </message>
 	
 	<message key="plugins.themes.custom.option.fontBodyLabel">Font Body</message>
-	<message key="plugins.themes.custom.option.fontBodyDescription">Choose one of: Arial, Georgia, NotoSans, NotoSerif, FiraSans, SourceSansPro, Merriweather, MerriweatherSans. </message>
-	
-	
-	
+	<message key="plugins.themes.custom.option.fontBodyDescription">Choose one of: Arial, Georgia, NotoSans, NotoSerif, FiraSans, SourceSansPro, Merriweather, MerriweatherSans, LinuxLibertine, LinuxBiolinum. </message>
+
 </locale>
 
 
