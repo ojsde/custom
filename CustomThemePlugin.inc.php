@@ -26,20 +26,20 @@ class CustomThemePlugin extends ThemePlugin {
 	public function init() {
 
 		$this->setParent('defaultthemeplugin');
-		
+
 		//heading
 		$this->addOption('heading', 'text', array(
 			'label' => 'plugins.themes.custom.option.headingLabel',
 			'description' => 'plugins.themes.custom.option.headingDescription'
-		));	
-				
+		));
+
 		$this->addOption('colourHeading', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
 		  'description' => 'plugins.themes.custom.option.colourHeadingDescription',
 		  'default' => '#ffffff'
-		));		
+		));
 		$colourHeading = $this->getOption('colourHeading');
-		
+
 		// Mobile Header: logo or custom title?
 		$this->addOption('headerMobile', 'radio', array(
 			'label' => 'plugins.themes.custom.option.headerMobileLabel',
@@ -103,7 +103,15 @@ class CustomThemePlugin extends ThemePlugin {
 			'label' => 'plugins.themes.custom.option.fontBodyLabel',
 			'description' => 'plugins.themes.custom.option.fontBodyDescription'
 		));
-		$fontBody = $this->getOption('fontBody');		
+		$fontBody = $this->getOption('fontBody');
+
+		//Font Size (base)
+		$this->addOption('fontBaseCustom', 'text', array(
+			'label' => 'plugins.themes.custom.option.fontBaseCustomLabel',
+			'description' => 'plugins.themes.custom.option.fontBaseCustomDescription',
+			'default' => '14px',			
+		));
+		$fontBaseCustom = $this->getOption('fontBaseCustom');
 
 		// Borders
 		$this->addOption('typeBorder', 'radio', array(
@@ -177,14 +185,16 @@ class CustomThemePlugin extends ThemePlugin {
 
 		$additionalLessVariables[] = '@primary:' . $colourLinks . ';';
 		$additionalLessVariables[] = '@colourHeading: ' . $colourHeading . ';';
-		$additionalLessVariables[] = '@text: ' . $colourText . ';';	
-		$additionalLessVariables[] = '@colourHeadings: ' . $colourHeadings . ';';					
+		$additionalLessVariables[] = '@text: ' . $colourText . ';';
+		$additionalLessVariables[] = '@colourHeadings: ' . $colourHeadings . ';';				
 		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';
-		$additionalLessVariables[] = '@heroHeader: ' . $heroHeader . ';';			
-		$additionalLessVariables[] = '@heroHeight: 300px;';	
-		$additionalLessVariables[] = '@fontHeadlines: ' . $fontHeadlines . ';';	
-		$additionalLessVariables[] = '@font: ' . $fontBody . ';';	
-		$additionalLessVariables[] = '@font-heading: ' . $fontHeadlines . ';';			
+		$additionalLessVariables[] = '@heroHeader: ' . $heroHeader . ';';
+		$additionalLessVariables[] = '@heroHeight: 300px;';
+		$additionalLessVariables[] = '@fontHeadlines: ' . $fontHeadlines . ';';
+		$additionalLessVariables[] = '@font: ' . $fontBody . ';';
+		$additionalLessVariables[] = '@font-heading: ' . $fontHeadlines . ';';
+		$additionalLessVariables[] = '@font-base-custom: ' . $fontBaseCustom . ';';
+	
 		
 		if ($this->isColourDark($colourFooter)) {
 			$additionalLessVariables[] = '@footer-dark: 1;';

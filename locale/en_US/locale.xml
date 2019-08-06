@@ -65,6 +65,8 @@
 	<message key="plugins.themes.custom.option.fontBodyLabel">Font Body</message>
 	<message key="plugins.themes.custom.option.fontBodyDescription">Choose one of: Arial, Georgia, NotoSans, NotoSerif, FiraSans, SourceSansPro, Merriweather, MerriweatherSans, LinuxLibertine, LinuxBiolinum. </message>
 
-</locale>
+	<message key="plugins.themes.custom.option.fontBaseCustomLabel">Base Font Size</message>
+	<message key="plugins.themes.custom.option.fontBaseCustomDescription">Default is 14px if you leave this field empty.</message>
 
+</locale>
 
