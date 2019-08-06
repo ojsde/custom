@@ -145,9 +145,29 @@ h3 {
 		}
 	
 		padding: @triple @base 0 @base;
-		border-top: @bg-border;
-		border-bottom: @bg-border;				
+		/*
+		@media (min-width: @screen-desktop) {
+			& when (@positionJournalDescription=0 ) {
+				padding:0;
+			}
+			& when (@positionJournalDescription=1 ) {
+				& when (@enableAnnouncements=0 ) {
+					padding:0;
+				}
+			}			
+		}	*/	
 
+		& when not (@positionJournalDescription=2 ) {
+			& when (@enableAnnouncements=0 ) {
+				border-bottom: @bg-border;
+			}
+		}
+		& when (@positionJournalDescription=1 ) {
+			& when (@enableAnnouncements=1 ) {
+				border-bottom: @bg-border;
+			}
+		}		
+		
 		@media (min-width: @screen-phone) {
 			padding-left: @double;
 			padding-right: @double;
@@ -165,15 +185,8 @@ h3 {
 		> p:last-child {
 			margin-bottom: 0;
 		}
-
 }
 
-@media(min-width: @screen-tablet) {
-	.journal_description {
-		border-top: none;
-	}
-}
-	
 .journal_description_above {
 	display: none;
 }
@@ -187,18 +200,6 @@ h3 {
 .journal_description_below when (@positionJournalDescription =1) {
 	display: block;
 }	
-
-// Border weg, stört sich mit journal description
-& when not (@positionJournalDescription =2) {
-
-	.journal_description {
-		border-top:transparent !important;
-	}
-}
-
-	.cmp_announcements {
-		border-top:transparent !important;
-	}
 	
 /*********** left sidebar **************/
 
@@ -320,6 +321,10 @@ h3 {
 	.pkp_structure_main {
 		padding-top:0;
 	}
+}
+
+.pkp_structure_content  {
+	padding-top:0;
 }
 
 /*********** Hero Bild und Claim **************/

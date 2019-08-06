@@ -24,7 +24,10 @@ class CustomThemePlugin extends ThemePlugin {
 	 * @return null
 	 */
 	public function init() {
-
+		
+		$request = Application::getRequest();
+		$journal = $request->getJournal();
+		
 		$this->setParent('defaultthemeplugin');
 
 		//heading
@@ -194,7 +197,7 @@ class CustomThemePlugin extends ThemePlugin {
 		$additionalLessVariables[] = '@font: ' . $fontBody . ';';
 		$additionalLessVariables[] = '@font-heading: ' . $fontHeadlines . ';';
 		$additionalLessVariables[] = '@font-base-custom: ' . $fontBaseCustom . ';';
-	
+		$additionalLessVariables[] = '@enableAnnouncements: ' . (int)($journal->getSetting('enableAnnouncements')) . ';';
 		
 		if ($this->isColourDark($colourFooter)) {
 			$additionalLessVariables[] = '@footer-dark: 1;';
