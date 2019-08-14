@@ -32,13 +32,6 @@ class CustomThemePlugin extends ThemePlugin {
 
 		$this->removeOption('typography');
 
-		//test
-		$this->addOption('test', 'text', array(
-			'label' => 'test',
-			'description' => 'test'
-		));
-		$test = $this->getOption('test');
-
 		// custom heading / hero claim
 		$this->addOption('heading', 'text', array(
 			'label' => 'plugins.themes.custom.option.headingLabel',
