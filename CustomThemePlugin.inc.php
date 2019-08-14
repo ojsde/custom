@@ -30,12 +30,22 @@ class CustomThemePlugin extends ThemePlugin {
 		
 		$this->setParent('defaultthemeplugin');
 
-		//heading
+		$this->removeOption('typography');
+
+		//test
+		$this->addOption('test', 'text', array(
+			'label' => 'test',
+			'description' => 'test'
+		));
+		$test = $this->getOption('test');
+
+		// custom heading / hero claim
 		$this->addOption('heading', 'text', array(
 			'label' => 'plugins.themes.custom.option.headingLabel',
 			'description' => 'plugins.themes.custom.option.headingDescription'
 		));
 
+		// colour of custom heading / hero claim
 		$this->addOption('colourHeading', 'colour', array(
 		  'label' => 'plugins.themes.custom.option.colourHeadingLabel',
 		  'description' => 'plugins.themes.custom.option.colourHeadingDescription',
@@ -71,8 +81,8 @@ class CustomThemePlugin extends ThemePlugin {
 			'description' => 'plugins.themes.custom.option.colourFooterDescription',
 			'default' => '#bfbfbf',
 		));
-		$colourFooter = $this->getOption('colourFooter');	
-		
+		$colourFooter = $this->getOption('colourFooter');
+
 		$this->addOption('colourLinks', 'colour', array(
 			'label' => 'plugins.themes.custom.option.colourLinksLabel',
 			'description' => 'plugins.themes.custom.option.colourLinksDescription',
@@ -87,20 +97,20 @@ class CustomThemePlugin extends ThemePlugin {
 		));
 		$colourText = $this->getOption('colourText');
 
-		$this->addOption('colourHeadings', 'colour', array(
-			'label' => 'plugins.themes.custom.option.colourHeadingsLabel',
-			'description' => 'plugins.themes.custom.option.colourHeadingsDescription',
+		$this->addOption('colourHeadlines', 'colour', array(
+			'label' => 'plugins.themes.custom.option.colourHeadlinesLabel',
+			'description' => 'plugins.themes.custom.option.colourHeadlinesDescription',
 			'default' => '#2c2c2c',
 		));
-		$colourHeadings = $this->getOption('colourHeadings');
-		
+		$colourHeadlines = $this->getOption('colourHeadlines');
+
 		//Font Headlines
 		$this->addOption('fontHeadlines', 'text', array(
 			'label' => 'plugins.themes.custom.option.fontHeadlinesLabel',
 			'description' => 'plugins.themes.custom.option.fontHeadlinesDescription'
 		));
 		$fontHeadlines = $this->getOption('fontHeadlines');
-		
+
 		//Font Body
 		$this->addOption('fontBody', 'text', array(
 			'label' => 'plugins.themes.custom.option.fontBodyLabel',
@@ -109,12 +119,12 @@ class CustomThemePlugin extends ThemePlugin {
 		$fontBody = $this->getOption('fontBody');
 
 		//Font Size (base)
-		$this->addOption('fontBaseCustom', 'text', array(
-			'label' => 'plugins.themes.custom.option.fontBaseCustomLabel',
-			'description' => 'plugins.themes.custom.option.fontBaseCustomDescription',
+		$this->addOption('fontBase', 'text', array(
+			'label' => 'plugins.themes.custom.option.fontBaseLabel',
+			'description' => 'plugins.themes.custom.option.fontBaseDescription',
 			'default' => '14px',			
 		));
-		$fontBaseCustom = $this->getOption('fontBaseCustom');
+		$fontBase = $this->getOption('fontBase');
 
 		// Borders
 		$this->addOption('typeBorder', 'radio', array(
@@ -122,7 +132,8 @@ class CustomThemePlugin extends ThemePlugin {
 			'description' => 'plugins.themes.custom.option.typeBorderDescription',
 			'options' => array(
 				0 => 'plugins.themes.custom.option.typeBorderOn',
-				1 => 'plugins.themes.custom.option.typeBorderOff'
+				1 => 'plugins.themes.custom.option.typeBorderVertical',
+				2 => 'plugins.themes.custom.option.typeBorderHorizontal',				
 			)
 		));			
 		$typeBorder = $this->getOption('typeBorder');
@@ -151,68 +162,68 @@ class CustomThemePlugin extends ThemePlugin {
 
 ////////////////////////////////////////////////////////////////////////////////////		
 
-		//$this->removeOption('baseColour');
-		$this->removeOption('typography');	
-		$this->modifyStyle('stylesheet', array('addLess' => array('styles/custom.less')));
-		$this->addStyle('custom', 'styles/custom.less');
-		
 		$additionalLessVariables = array();	
-		// todo: warum muss man diese Verrenkung machen?
-		if ($positionJournalDescription==0) {
-			$additionalLessVariables[] = '@positionJournalDescription: 0;';		
-		} else if ($positionJournalDescription==1) {
-			$additionalLessVariables[] = '@positionJournalDescription: 1;';		
-		} else {
-			$additionalLessVariables[] = '@positionJournalDescription: 2;';		
-		}
 
-		if ($positionSidebar==0) {
-			$additionalLessVariables[] = '@positionSidebar: 0;';				
-		} else {
-			$additionalLessVariables[] = '@positionSidebar: 1;';		
-		}
-
-		if ($headerMobile==0) {
-			$additionalLessVariables[] = '@headerMobile: 0;';				
-		} else {
-			$additionalLessVariables[] = '@headerMobile: 1;';		
-		}
-
-		// Update colour based on theme option
-		$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';		
-		if ($this->getOption('baseColour') !== '#1E6292') {
-			if (!$this->isColourDark($this->getOption('baseColour'))) {
-				$additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
-			}
-		}
-
+		$additionalLessVariables[] = '@custom-position-journaldescription:' . $positionJournalDescription . ';';
+		$additionalLessVariables[] = '@custom-position-sidebar:' . $positionSidebar . ';';
+		$additionalLessVariables[] = '@custom-header-mobile:' . $headerMobile . ';';
+		$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';
 		$additionalLessVariables[] = '@primary:' . $colourLinks . ';';
-		$additionalLessVariables[] = '@colourHeading: ' . $colourHeading . ';';
+		$additionalLessVariables[] = '@custom-colour-heading: ' . $colourHeading . ';';
 		$additionalLessVariables[] = '@text: ' . $colourText . ';';
-		$additionalLessVariables[] = '@colourHeadings: ' . $colourHeadings . ';';				
-		$additionalLessVariables[] = '@colour-footer: ' . $colourFooter . ';';
-		$additionalLessVariables[] = '@heroHeader: ' . $heroHeader . ';';
-		$additionalLessVariables[] = '@heroHeight: 300px;';
-		$additionalLessVariables[] = '@fontHeadlines: ' . $fontHeadlines . ';';
-		$additionalLessVariables[] = '@font: ' . $fontBody . ';';
-		$additionalLessVariables[] = '@font-heading: ' . $fontHeadlines . ';';
-		$additionalLessVariables[] = '@font-base-custom: ' . $fontBaseCustom . ';';
-		$additionalLessVariables[] = '@enableAnnouncements: ' . (int)($journal->getSetting('enableAnnouncements')) . ';';
+		$additionalLessVariables[] = '@custom-colour-headlines: ' . $colourHeadlines . ';';		
+		$additionalLessVariables[] = '@custom-colour-footer: ' . $colourFooter . ';';
+		$additionalLessVariables[] = '@custom-hero-header: ' . $heroHeader . ';';
+		$additionalLessVariables[] = '@custom-hero-height: 300px;';
+		$additionalLessVariables[] = '@custom-font-headlines: ' . $fontHeadlines . ';';
+		$additionalLessVariables[] = '@custom-enabled-announcements: ' . (int)($journal->getSetting('enableAnnouncements')) . ';';
+
+		// text color for light headers = body text colour		
+		if (!$this->isColourDark($this->getOption('baseColour'))) {
+			$additionalLessVariables[] = '@text-bg-base: @text;';
+		}
 		
-		if ($this->isColourDark($colourFooter)) {
-			$additionalLessVariables[] = '@footer-dark: 1;';
+		// font base size: only digits allowed
+		if (ctype_digit($fontBase) && intval($fontBase) > 0 ) {
+			$additionalLessVariables[] = '@custom-font-base: ' . $fontBase  . 'px;';
 		} else {
-			$additionalLessVariables[] = '@footer-dark: 0;';			
+			$additionalLessVariables[] = '@custom-font-base: 14px;';
+		}
+
+		if (!$this->isColourDark($colourFooter)) {
+			$additionalLessVariables[] = '@custom-colour-text-footer: @text;';
+		} else {
+			$additionalLessVariables[] = '@custom-colour-text-footer: #fff;';			
+		}
+
+		if ($typeBorder==1) {
+			$additionalLessVariables[] = '@custom-type-border: 1;';
+			$additionalLessVariables[] = '@bg-border: transparent;';			
+		} else if ($typeBorder==2) {
+			$additionalLessVariables[] = '@custom-type-border: 2;';
+		} else {
+			$additionalLessVariables[] = '@custom-type-border: 0;';			
 		}
 		
-		if ($typeBorder==1) {
-			$additionalLessVariables[] = '@bg-border: transparent;';	
+		if ($fontBody=='Arial' || $fontBody=='Georgia'|| $fontBody=='NotoSans' ||
+			$fontBody=='NotoSerif'|| $fontBody=='FiraSans'|| $fontBody=='SourceSansPro' ||
+			$fontBody=='Merriweather'|| $fontBody=='MerriweatherSans'|| $fontBody=='LinuxLibertine' ||
+			$fontBody=='LinuxBiolinum') {
+			$additionalLessVariables[] = '@font: ' . $fontBody . ';';				
 		}
-	
+		
+		if ($fontHeadlines=='Arial' || $fontHeadlines=='Georgia'|| $fontHeadlines=='NotoSans' ||
+			$fontHeadlines=='NotoSerif'|| $fontHeadlines=='FiraSans'|| $fontHeadlines=='SourceSansPro' ||
+			$fontHeadlines=='Merriweather'|| $fontHeadlines=='MerriweatherSans'|| $fontHeadlines=='LinuxLibertine' ||
+			$fontHeadlines=='LinuxBiolinum') {
+			$additionalLessVariables[] = '@font-heading: ' . $fontHeadlines . ';';				
+		}
+		
+		$this->modifyStyle('stylesheet', array('addLess' => array('styles/custom.less')));
+		//$this->addStyle('custom', 'styles/custom.less');
 		if (!empty($additionalLessVariables)) {
 			$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		}
-
 		// Get extra data for templates
 		HookRegistry::register('TemplateManager::display', array($this, 'loadTemplateData'));		
 	}

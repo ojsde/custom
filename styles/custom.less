@@ -102,29 +102,29 @@
     font-style: normal;
 }
 
-@font-base:              @font-base-custom;
-@font-sml:               @font-base-custom - 1;
-@font-bump:              @font-base-custom + 2;
-@font-lead:              @font-base-custom + 4;
-@font-header:            @font-base-custom + 10;
+@font-base:              @custom-font-base;
+@font-sml:               @font-base - 1;
+@font-bump:              @font-base + 2;
+@font-lead:              @font-base + 4;
+@font-header:            @font-base + 10;
 
 
 /*********** Farben allgemein **************/
 
 h1 {
-	color: @colourHeadings;
+	color: @custom-colour-headlines;
 }
 
 .cmp_breadcrumbs h1 {
-	color:@text-light;
+	color: @text-light;
 }
 
 h2 {
-	color: @colourHeadings;
+ color: @custom-colour-headlines;
 }
 
 h3 {
-	color: @colourHeadings;
+	color: @custom-colour-headlines;
 }
 
 /*********** journal description **************/
@@ -133,49 +133,39 @@ h3 {
 		margin-left: -@base;
 		margin-right: -@base;
 		padding-bottom: 20px !important;
-		
+
 		@media (min-width: @screen-phone) {
-			margin-left: -@double;
-			margin-right: -@double;
+			padding-left: -@double;
+			padding-right: -@double;
 		}
 
 		@media (min-width: @screen-desktop) {
-			margin-left: -@triple;
-			margin-right: -@triple;
-		}
-	
-		padding: @triple @base 0 @base;
-		/*
-		@media (min-width: @screen-desktop) {
-			& when (@positionJournalDescription=0 ) {
-				padding:0;
-			}
-			& when (@positionJournalDescription=1 ) {
-				& when (@enableAnnouncements=0 ) {
-					padding:0;
+			padding-left: -@triple;
+			padding-right: -@triple;
+
+			& when (@custom-hero-header=1) {
+				& when (@custom-enabled-announcements=0 ) {
+					padding-top:0;
 				}
-			}			
-		}	*/	
+			}
+			& when (@custom-hero-header=1) {
+				& when not (@custom-position-journaldescription=1) {
+					padding-top:0;
+				}
+			}		
+		}
 
-		& when not (@positionJournalDescription=2 ) {
-			& when (@enableAnnouncements=0 ) {
+		padding: @triple @base 0 @base;
+
+		& when not (@custom-position-journaldescription=2 ) {
+			& when (@custom-enabled-announcements=0 ) {
 				border-bottom: @bg-border;
 			}
 		}
-		& when (@positionJournalDescription=1 ) {
-			& when (@enableAnnouncements=1 ) {
+		& when (@custom-position-journaldescription=1 ) {
+			& when (@custom-enabled-announcements=1 ) {
 				border-bottom: @bg-border;
 			}
-		}		
-		
-		@media (min-width: @screen-phone) {
-			padding-left: @double;
-			padding-right: @double;
-		}
-
-		@media (min-width: @screen-desktop) {
-			padding-left: @triple;
-			padding-right: @triple;
 		}
 
 		> p:first-child {
@@ -194,16 +184,16 @@ h3 {
 	display: none;
 }
 
-.journal_description_above when (@positionJournalDescription =0) {
+.journal_description_above when (@custom-position-journaldescription =0) {
 	display: block;
 }
-.journal_description_below when (@positionJournalDescription =1) {
+.journal_description_below when (@custom-position-journaldescription =1) {
 	display: block;
 }	
 	
 /*********** left sidebar **************/
 
-& when (@positionSidebar =1) {
+& when (@custom-position-sidebar =1) {
 @media(min-width: 992px) {
   .pkp_structure_sidebar {
     float: left;
@@ -227,8 +217,6 @@ h3 {
   }
 }
 }
-/* ende left sidebar */
-
 
 /*********** footer **************/
 
@@ -237,14 +225,12 @@ h3 {
 }
 
 .pkp_structure_footer_wrapper {
-	background-color: @colour-footer;
+	background-color: @custom-colour-footer;
 }
 
 // footer text white for dark background
-& when (@footer-dark =1) {
-	.pkp_footer_content {
-		color: #fff;
-	}
+.pkp_footer_content {
+	color: @custom-colour-text-footer;
 }
 
 /*********** custom header **************/
@@ -254,19 +240,19 @@ h3 {
 	text-decoration:none;
 	line-height:30px;
 	font-size: @font-header+2;
-	font-family: @fontHeadlines;
+	font-family: @custom-font-headlines;
 }
 
 // custom title oder logo auf smartphones ausschalten
 
 // keep custom heading
-& when (@headerMobile=1) {
+& when (@custom-header-mobile=1) {
 	.pkp_site_name a.is_img {
 		display:none;
 	}
 }
 // keep logo
-& when (@headerMobile=0) {
+& when (@custom-header-mobile=0) {
 	#custom_heading {
 		display:none;
 	}
@@ -279,11 +265,11 @@ h3 {
 		display:block;
 	}
 	#custom_heading h1 a {
-		color: @colourHeading;		
+		color: @custom-colour-heading;		
 	}		
 }
 
-& when (@heroHeader=0) {
+& when (@custom-hero-header=0) {
 	#custom_heading h1 {
 		margin-top:0;
 	}
@@ -323,8 +309,19 @@ h3 {
 	}
 }
 
-.pkp_structure_content  {
-	padding-top:0;
+& when (@custom-type-border=2) {
+	.pkp_structure_main::after {
+		background: transparent;
+	}
+	.pkp_structure_main::before {
+		background: transparent;
+	}
+}
+
+& when (@custom-type-border=1) {
+	#headerNavigationContainer {
+		border-bottom: 1px solid @bg-shade !important;
+	}
 }
 
 /*********** Hero Bild und Claim **************/
@@ -333,9 +330,15 @@ h3 {
 	display:none;
 }
 
+& when (@custom-hero-header=1) {
+	.homepage_image {
+		//margin-top:0 !important;
+	}
+}
+
 @media only screen and (min-width: 480px)   {
 
-& when (@heroHeader=1) {
+& when (@custom-hero-header=1) {
 
 		.custom_heading_wrapper {
 			display:none;
@@ -346,15 +349,15 @@ h3 {
 		}		
 	
 		#custom_hero a {
-			color: @colourHeading;
+			color: @custom-colour-heading;
 		}
 
 		#custom_hero {
-			font-family: @fontHeadlines;
+			font-family: @custom-font-headlines;
 		}
 
 		#custom_hero a:hover {
-			color: @colourHeading;
+			color: @custom-colour-heading;
 		}	
 	
 		.pkp_structure_main{
@@ -369,7 +372,7 @@ h3 {
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;	
-		height: @heroHeight;	
+		height: @custom-hero-height;	
 		position:relative;
 	}
 	
@@ -385,13 +388,13 @@ h3 {
 		line-height: @quintuple;
 		text-decoration:none;
 	}
-	}
+}
 }
 		
 // kleine Bildschirme: Schriftgröße verkleinern, andere Mitte
 		
 @media only screen and (max-width: 991px)   {
-& when (@heroHeader=1) {	
+& when (@custom-hero-header=1) {	
 	#custom_hero {
 		position: absolute;
 		top:  27%;

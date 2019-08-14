@@ -33,8 +33,9 @@
 	<message key="plugins.themes.custom.option.typeBorderLabel">Borders</message>
 	<message key="plugins.themes.custom.option.typeBorderDescription">Set borders.</message>
 	<message key="plugins.themes.custom.option.typeBorderOn">Default/On</message>
-	<message key="plugins.themes.custom.option.typeBorderOff">Only vertical</message>	
-
+	<message key="plugins.themes.custom.option.typeBorderVertical">Only vertical</message>	
+	<message key="plugins.themes.custom.option.typeBorderHorizontal">Only horizontal</message>	
+		
 	<message key="plugins.themes.custom.option.colourFooterLabel">Footer Colour</message>	
 	<message key="plugins.themes.custom.option.colourFooterDescription">Choose background colour for the footer</message>		
 	
@@ -51,8 +52,8 @@
 	<message key="plugins.themes.custom.option.colourTextLabel">Text Colour</message>
 	<message key="plugins.themes.custom.option.colourTextDescription">Choose the colour of text.</message>
 
-	<message key="plugins.themes.custom.option.colourHeadingsLabel">Colour h1 h2 h3</message>
-	<message key="plugins.themes.custom.option.colourHeadingsDescription">Choose the colour of h1,h2,h3-headings.</message>
+	<message key="plugins.themes.custom.option.colourHeadlinesLabel">Colour h1 h2 h3</message>
+	<message key="plugins.themes.custom.option.colourHeadlinesDescription">Choose the colour of h1,h2,h3-headings.</message>
 
 	<message key="plugins.themes.custom.option.heroHeaderLabel">Hero Header</message>
 	<message key="plugins.themes.custom.option.heroHeaderDescription">Use homepage image as hero image.</message>
@@ -65,8 +66,8 @@
 	<message key="plugins.themes.custom.option.fontBodyLabel">Font Body</message>
 	<message key="plugins.themes.custom.option.fontBodyDescription">Choose one of: Arial, Georgia, NotoSans, NotoSerif, FiraSans, SourceSansPro, Merriweather, MerriweatherSans, LinuxLibertine, LinuxBiolinum. </message>
 
-	<message key="plugins.themes.custom.option.fontBaseCustomLabel">Base Font Size</message>
-	<message key="plugins.themes.custom.option.fontBaseCustomDescription">Default is 14px if you leave this field empty.</message>
+	<message key="plugins.themes.custom.option.fontBaseLabel">Base Font Size</message>
+	<message key="plugins.themes.custom.option.fontBaseDescription">Enter only digits. Default is 14. Unit: px.</message>
 
 </locale>
 
