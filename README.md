@@ -1,4 +1,4 @@
-## custom
+## Custom Theme Plugin
 Theme Plugin for OJS 3. Extends the official Default Theme Plugin with a number of settings for journal managers.
 
 ## About
