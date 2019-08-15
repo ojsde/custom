@@ -8,7 +8,7 @@ An OJS theme that allows customizing the OJS default theme.
 ## Settings
 
 - Header Colour (adopted by Default Theme Plugin)
-- Heading: custom heading / Title / hero claim, in addition to logo
+- Heading: custom heading / title / hero claim, in addition to logo, replaces journal title, cannot be localized
 - Heading Colour: colour for custom heading
 - Mobile Hader: wether to keep logo or custom heading on small mobiles (resposive behaviour)
 - Position Journal Description: display journal description above or below announcements, or not at all
