@@ -170,7 +170,10 @@ class CustomThemePlugin extends ThemePlugin {
 		$additionalLessVariables[] = '@custom-hero-height: 300px;';
 		$additionalLessVariables[] = '@custom-font-headlines: ' . $fontHeadlines . ';';
 		$additionalLessVariables[] = '@custom-enabled-announcements: ' . (int)($journal->getSetting('enableAnnouncements')) . ';';
-
+		
+		$homepageImage = intval(!(is_null($journal->getLocalizedSetting('homepageImage'))) && !$heroHeader);
+		$additionalLessVariables[] = '@homepage-image: '.$homepageImage.';';				
+			
 		// text color for light headers = body text colour		
 		if (!$this->isColourDark($this->getOption('baseColour'))) {
 			$additionalLessVariables[] = '@text-bg-base: @text;';
