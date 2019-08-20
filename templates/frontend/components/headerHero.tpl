@@ -86,7 +86,7 @@
 					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</nav>		
 				</div>				
-				{assign var="homepageImageUrl" value="{$publicFilesDir}/{$homepageImageName}"}
+				{assign var="homepageImageUrl" value="$publicFilesDir/$homepageImageName"}
 
 				<div class="custom_hero_wrapper" style="background-image:url({$homepageImageUrl})">
 					<div id="custom_hero">
