@@ -220,6 +220,7 @@ class CustomThemePlugin extends ThemePlugin {
 		if (!empty($additionalLessVariables)) {
 			$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		}
+		$this->addStyle("htmlStyle", "styles/htmlGalleys.css", array('contexts' => 'htmlGalley'));
 		// Get extra data for templates
 		HookRegistry::register('TemplateManager::display', array($this, 'loadTemplateData'));		
 	}
